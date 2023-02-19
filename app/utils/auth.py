@@ -17,7 +17,7 @@ class Auth:
     def init_app(self, app, db, route: bool = False):
         
         if route:
-            AuthRoute().register(app)
+            AuthView().register(app)
     
     @staticmethod
     def auth(username: str, password: str) -> None:
@@ -45,7 +45,7 @@ def auth_required(roles=['*']):
     return auth_decorated
 
 
-class AuthRoute(Route):
+class AuthView(Route):
 
     def __init__(self) -> None:
         super().__init__()
@@ -53,4 +53,8 @@ class AuthRoute(Route):
     @auth_required(roles=['*']) 
     @route(endpoint='/me', methods=['GET'])
     def me(self):
+        pass
+
+    @route(endpoint='/login', methods=['POST'])
+    def login(self):
         pass

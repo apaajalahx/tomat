@@ -19,6 +19,13 @@ class InvalidMethodsException(Exception):
         super().__init__(self.message)
 
 
+class InvalidLocationException(Exception):
+
+    def __init__(self, message) -> None:
+        self.message = message
+        super().__init__(self.message)
+
+
 class MakeJsonError:
 
     def __init__(self, array: list[str | int | dict[str, str | int]] | dict[str, int | str], 

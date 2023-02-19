@@ -6,6 +6,7 @@
 import random
 import string
 
-
 def randomString(length: int = 10) -> str:
     return ''.join([random.choices(string.ascii_letters + string.digits) for z in range(0, length)])
+
+

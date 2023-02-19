@@ -3,6 +3,7 @@ from .config import config
 from .utils.log import Log
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
+from .module import Modules
 
 
 db = SQLAlchemy()
@@ -13,5 +14,5 @@ def create_app(env='production'):
     db.init_app(app)
     cors.init_app(app)
     Log(app, as_email=False, as_sentry=True)
-
+    Modules(app)
     return app
